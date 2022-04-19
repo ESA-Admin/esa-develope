@@ -5,16 +5,8 @@
 1. `main.js`引入ESA开发库
 ```js
 // main.js
-// 引入esa-develope
 import esa from '@/uni_modules/esa-develope'
 Vue.use(esa)
-let store = esa.store
-
-// 向vue中添加store
-const app = new Vue({
-	store,
-    ...App
-})
 ```
 
 2. `App.vue`引入基础样式(注意style标签需声明scss属性支持)
@@ -37,5 +29,15 @@ const app = new Vue({
 	"pages": [
 		// ......
 	]
+}
+```
+
+4. `/static/`目录下添加config.json文件
+```json
+{
+	"debug"	: true,
+	"url"	: "https://dev.esaadmin.com",
+	"pfid"	: 1,
+	"addon"	: "we_demo"
 }
 ```
