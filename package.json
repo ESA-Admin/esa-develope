@@ -1,14 +1,14 @@
 {
   "id": "esa-develope",
-  "displayName": "esa-develope",
-  "version": "1.0.0",
-  "description": "esa-develope",
+  "displayName": "ESAAdmin开发框架",
+  "version": "1.0.1",
+  "description": "ESAAdmin开发框架",
   "keywords": [
-    "esa-develope"
+    "esa"
 ],
-  "repository": "",
+  "repository": "https://github.com/ESA-Admin/esa-develope.git",
   "engines": {
-    "HBuilderX": "^3.1.0"
+    "HBuilderX": "^3.3.13"
   },
   "dcloudext": {
     "category": [
@@ -27,27 +27,27 @@
       "qq": ""
     },
     "declaration": {
-      "ads": "",
-      "data": "",
-      "permissions": ""
+      "ads": "无",
+      "data": "插件不采集任何数据",
+      "permissions": "无"
     },
     "npmurl": ""
   },
   "uni_modules": {
-    "dependencies": [],
+    "dependencies": ["uview-ui"],
     "encrypt": [],
     "platforms": {
       "cloud": {
-        "tcb": "u",
-        "aliyun": "u"
+        "tcb": "y",
+        "aliyun": "y"
       },
       "client": {
         "Vue": {
-          "vue2": "u",
+          "vue2": "y",
           "vue3": "u"
         },
         "App": {
-          "app-vue": "u",
+          "app-vue": "y",
           "app-nvue": "u"
         },
         "H5-mobile": {
@@ -64,11 +64,13 @@
           "Safari": "u"
         },
         "小程序": {
-          "微信": "u",
-          "阿里": "u",
-          "百度": "u",
-          "字节跳动": "u",
-          "QQ": "u"
+          "微信": {
+            "minVersion": "1.05"
+        },
+          "阿里": "y",
+          "百度": "y",
+          "字节跳动": "y",
+          "QQ": "y"
         },
         "快应用": {
           "华为": "u",
