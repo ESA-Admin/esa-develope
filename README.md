@@ -25,7 +25,7 @@ const app = new Vue({
 </style>
 ```
 
-4. `pages.json`配置easycom规则(按需引入)
+3. `pages.json`配置easycom规则(按需引入)
 
 ```js
 // pages.json
