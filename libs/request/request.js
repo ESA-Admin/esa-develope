@@ -12,6 +12,16 @@ export default function(options,success,error,status,userInfo){
 			success		: function(res){
 				uni.$esa.debug("请求成功：",res);
 				uni.hideLoading();
+				if(res.statusCode >= 400){
+					var result = error.call(this, res.data, res);
+					if (result === false)
+						return;
+					uni.showToast({
+						title: "请求："+res.statusCode+"错误",
+						icon: "error"
+					});
+					return;
+				}
 				res = res.data;
 				try{
 					res = typeof res === "object" ? res : JSON.parse(res);
@@ -27,7 +37,6 @@ export default function(options,success,error,status,userInfo){
 						uni.$esa.debug("重复登录，检查系统代码问题！");
 						return ;
 					}
-					console.log(uni.getStorageSync("ESA_LOGIN"));
 					if(!uni.getStorageSync("ESA_LOGIN")){
 						uni.$esa.user.silenceLogin(()=>{
 							uni.$esa.debug("二次静默登录");
@@ -67,7 +76,7 @@ export default function(options,success,error,status,userInfo){
 				uni.hideLoading();
 			}
 		},options);
-		console.log("############33",uni.$esa.store.state.ESA_USER.token);
+
 		param.header = typeof param.header === "undefined" ? {'token':uni.$esa.store.state.ESA_USER.token} : Object.assign({'token':uni.$esa.store.state.ESA_USER.token},param.header);
 		uni.$esa.debug("请求参数：",param);
 		return uni.request(param);
